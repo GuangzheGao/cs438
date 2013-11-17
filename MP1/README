@@ -1,0 +1,46 @@
+sliu45
+ggao2
+
+
+A basic implementation of client-server connection in python. 
+
+
+For the server side, ./server is used to set up server.(python instead of ./ in windows) Client queue is defined by parameter MAX_CLIENTS.(default to be 100)  It will use HOST = 'localhost', 
+PORT = 4000(should not be priviledged). 
+
+The server side will respond according to the request, if request is valid, then 200 OK, content length,
+ 
+and file will be tansmitted to the client. Only GET request will be acknowledged by the server as valid http-method in this MP.(other requests are acknowledged as 400 bad request response) 
+
+Test filenames are are mp1_test1 to mp1_test6, which are of size 1,100,1000,10000,100000,1000000 bytes respectively.(bad path name requests will result 404 not found response)
+
+
+
+
+
+For the client side, ./client <servername> <port> <filename> will be used to request(python instead of ./ in windows). Definitions are following MP documentation
+
+Client side will time the time from request until receive files fully. 
+
+
+
+Time analysis, python timing for test files , 10 loops average:
+
+--------FUNCTION TEST ENDS--------
+-----------TIMING STARTS----------
+-----------File Size:1------------
+10 loops, best of 1: 131 usec per loop
+-----------File Size:100------------
+10 loops, best of 1: 106 usec per loop
+-----------File Size:1000------------
+10 loops, best of 1: 133 usec per loop
+-----------File Size:10000------------
+10 loops, best of 1: 142 usec per loop
+-----------File Size:100000------------
+10 loops, best of 1: 246 usec per loop
+-----------File Size:1000000------------
+10 loops, best of 1: 1.7 msec per loop
+-----------TIMING ENDS------------
+-----------TESTING ENDS-----------
+
+
